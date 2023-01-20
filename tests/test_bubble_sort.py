@@ -42,7 +42,7 @@ def test_bubble_sort_wrong_types(lista):
 def test_bubble_sort_one_value(lista):
     with pytest.raises(Exception) as exc_info:
         bubble_sort(lista)
-    assert "object is not iterable" in exc_info.value.args[0]  
+    assert "Provied list contains corrupted values!" == exc_info.value.args[0]  
 
 
 @pytest.mark.parametrize('lista',[
@@ -54,5 +54,5 @@ def test_bubble_sort_one_value(lista):
 ])
 def test_bubble_sort_not_a_list_type(lista):
     with pytest.raises(Exception) as exc_info:
-        raise Exception('Provied list contains corrupted values!')
-    assert exc_info.value.args[0] == 'Provied list contains corrupted values!'
+        bubble_sort(lista)
+    assert "Provied list contains corrupted values!" == exc_info.value.args[0]  
